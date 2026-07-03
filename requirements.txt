@@ -1,0 +1,8 @@
+PyQt6
+PyQt6-sip
+pyinstaller
+openpyxl
+pandas
+numpy
+matplotlib
+seaborn

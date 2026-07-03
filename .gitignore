@@ -1,0 +1,29 @@
+# Distribution
+dist/
+build/
+*.egg-info/
+*.pkg
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.dylib
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# TestCraft specific
+*.tcproj
+*.spec
