@@ -11,7 +11,7 @@
 
 ## 📖 项目简介
 
-TestCraft 是一款现代化的桌面端测试用例自动生成工具，内置 **6 种经典软件测试方法论引擎**，可根据用户定义的功能场景和参数配置，智能推导出全面的测试用例。
+TestCraft 是一款现代化的桌面端测试用例自动生成工具，内置 **6 种经典软件测试方法论引擎**，可根据用户定义的功能场景和参数配置，智能推导出全面的测试用例。支持多格式导出、主题切换、统计分析等功能，并提供一键打包为独立可执行文件的能力。
 
 ### 核心亮点
 
@@ -27,7 +27,7 @@ TestCraft 是一款现代化的桌面端测试用例自动生成工具，内置 
 ## 🏗️ 项目架构
 
 ```
-testcase-generator/
+TestCraft/
 ├── main.py                          # 程序入口
 ├── testcase_generator/
 │   ├── __init__.py                  # 包声明 & 版本信息
@@ -45,10 +45,12 @@ testcase-generator/
 │   ├── ui_export.py                 # 导出中心
 │   ├── ui_statistics.py             # 统计分析
 │   └── ui_dialogs.py                # 对话框组件
-├── docs/
-│   └── index.html                   # 项目展示页面
+├── assets/
+│   ├── testcraft.png                # 应用图标源文件 (1024x1024 PNG)
+│   └── testcraft.ico                # 多分辨率应用图标 (16/32/48/64/128/256)
 ├── build.bat                        # Windows 一键打包脚本
 ├── build.spec                       # PyInstaller 配置文件
+├── generate_icon.py                 # 图标生成脚本
 ├── requirements.txt                 # 依赖列表
 └── README.md                        # 项目文档
 ```
@@ -201,7 +203,7 @@ MIT License
 
 ## 👨‍💻 作者
 
-TestCraft Team
+刘帅强
 
 ---
 
