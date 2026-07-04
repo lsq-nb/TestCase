@@ -214,7 +214,7 @@ class EquivalenceClassEngine:
                 max_len = int(rule.max_value) if rule.max_value else 50
                 sample = rule.default_value or "test"
                 partitions.extend([
-                    {"value": sample[:max_len] if max_len > 0 else "", "class": "有效等价类", f"长度在[{min_len},{max_len}]之间"},
+                    {"value": sample[:max_len] if max_len > 0 else "", "class": "有效等价类", "desc": f"长度在[{min_len},{max_len}]之间"},
                     {"value": "", "class": "无效等价类", "desc": "空字符串"},
                     {"value": sample + "x" * (max_len + 10), "class": "无效等价类", "desc": f"超过最大长度({max_len})"},
                 ])

@@ -131,6 +131,13 @@ class ScenarioManagerPage(QWidget):
 
         dialog = ScenarioConfigDialog(scenario)
         if dialog.exec() == QDialog.DialogCode.Accepted:
+            # 将对话框中修改后的场景写回项目
+            import copy
+            scenario.parameters = copy.deepcopy(dialog.scenario.parameters)
+            scenario.name = dialog.scenario.name
+            scenario.description = dialog.scenario.description
+            scenario.method = dialog.scenario.method
+            scenario.priority = dialog.scenario.priority
             self._refresh_tree()
             self.scenario_changed.emit()
 
@@ -154,6 +161,16 @@ class ScenarioManagerPage(QWidget):
             self._refresh_tree()
             self.scenario_changed.emit()
 
+    def get_main_window(self):
+        """获取父级主窗口"""
+        parent = self.parent()
+        while parent is not None:
+            from testcase_generator.ui_mainwindow import MainWindow
+            if isinstance(parent, MainWindow):
+                return parent
+            parent = parent.parent()
+        return None
+
     def _generate_cases(self):
         """一键生成用例"""
         if not self.project:
@@ -165,7 +182,14 @@ class ScenarioManagerPage(QWidget):
             return
 
         from testcase_generator.engine import generate_for_project
-        self.project = generate_for_project(self.project)
+        new_project = generate_for_project(self.project)
+
+        # 同时更新 MainWindow 和自身的 project 引用
+        main_win = self.get_main_window()
+        if main_win:
+            main_win.project = new_project
+        self.project = new_project
+
         self._refresh_tree()
         self.scenario_changed.emit()
 

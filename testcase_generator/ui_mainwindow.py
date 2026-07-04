@@ -192,6 +192,7 @@ class MainWindow(QMainWindow):
         """场景变更回调"""
         if self.project:
             self.project.updated_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # 只在场景变更时更新页面，但不要用旧 project 覆盖 ScenarioManagerPage 的 project
         self._update_all_pages()
 
     def _update_all_pages(self):
@@ -232,7 +233,6 @@ class MainWindow(QMainWindow):
 
         if self.dark_mode:
             self.theme_btn.setText("☀️ 浅色模式")
-            self.palette().setColor(self.windowText(), "#E0E6ED")
         else:
             self.theme_btn.setText("🌙 深色模式")
 

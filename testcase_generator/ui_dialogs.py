@@ -110,7 +110,7 @@ class ParameterEditor(QWidget):
 
     def get_parameters(self) -> list[ParameterRule]:
         """从表格中同步最新数据"""
-        for i in range(min(len(self.table.rows()), len(self.parameters))):
+        for i in range(min(self.table.rowCount(), len(self.parameters))):
             if i < len(self.parameters):
                 name_item = self.table.item(i, 0)
                 min_item = self.table.item(i, 3)
