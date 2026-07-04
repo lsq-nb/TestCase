@@ -11,6 +11,7 @@ from datetime import datetime
 from typing import Optional
 
 from .models import TestProject
+from .codegen import generate_code
 
 
 def export_to_excel(project: TestProject) -> bytes:

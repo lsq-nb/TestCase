@@ -17,7 +17,7 @@ echo [2/3] 使用 PyInstaller 打包...
 pyinstaller ^
     --name "TestCraft" ^
     --windowed ^
-    --icon "NONE" ^
+    --icon "assets/testcraft.ico" ^
     --add-data "testcase_generator;testcase_generator" ^
     --hidden-import "testcase_generator.models" ^
     --hidden-import "testcase_generator.engine" ^

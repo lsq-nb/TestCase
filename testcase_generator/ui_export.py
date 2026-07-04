@@ -75,7 +75,11 @@ class ExportPage(QWidget):
 
         self.preview_text = QTextEdit()
         self.preview_text.setReadOnly(True)
-        self.preview_text.setFont(QFont("Consolas", 11))
+        font = QFont("Consolas", 11)
+        if font.pointSize() <= 0:
+            font = QFont()
+            font.setPointSize(11)
+        self.preview_text.setFont(font)
         self.preview_text.setPlaceholderText("点击「预览代码」按钮查看生成的测试代码...")
         preview_layout.addWidget(self.preview_text)
 
